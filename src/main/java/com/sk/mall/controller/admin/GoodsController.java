@@ -258,4 +258,39 @@ public class GoodsController {
             return Msg.success("上架成功");
         }
     }
+
+    /**
+     * 重定向当商品页
+     *
+     * @param model   存数据
+     * @return String
+     */
+    @RequestMapping("/showhot")
+
+    public String hotGoodsManage(Model model) {
+        // 把商品类型查询出来返回给前端，以供商品修改使用
+        List<Category> categoryList = cateService.getAllCate();
+        model.addAttribute("categoryList", categoryList);
+        return "admin/showHot";
+    }
+
+
+
+    /**
+     * 分页显示商品
+     *
+     * @param pn      页码
+     * @param model   返回给前端的值
+     * @return Msg
+     */
+    @RequestMapping("/showhotjson")
+    @ResponseBody
+    public Msg getHotGoods(@RequestParam(value = "page", defaultValue = "1") Integer pn, Model model) {
+        //一页显示几个数据
+        PageHelper.startPage(pn, 10);
+        List<Goods> goods = goodsService.getHotGoods();
+        PageInfo<Goods> page = new PageInfo<>(goods);
+        model.addAttribute("pageInfo", page);
+        return Msg.success("查询成功!").add("pageInfo", page);
+    }
 }

@@ -71,5 +71,9 @@ public interface GoodsMapper {
      */
     List<Goods> selectGoodsByCateLike(String cate);
 
-
+    /**
+     *
+     * @return
+     */
+    List<Goods> getHotGoods();
 }

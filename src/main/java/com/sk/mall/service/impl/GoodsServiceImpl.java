@@ -114,19 +114,9 @@ public class GoodsServiceImpl implements GoodsService {
         return goodsMapper.selectGoodsByCateLike("%" + cate + "%");
     }
 
+
     @Override
-    public List<Goods> getHotGoods(int num) {
-        List<Map<String, Object>> totalGoods = orderItemMapper.getTotalGoods();
-        List<Goods> goods = new ArrayList<>();
-        int i = 0;
-        for (Map<String, Object> good : totalGoods) {
-            Goods goods1 = goodsMapper.getById(Integer.parseInt(good.get("goodsId").toString()));
-            goods.add(goods1);
-            i++;
-            if (i >= num) {
-                break;
-            }
-        }
-        return goods;
+    public List<Goods> getHotGoods() {
+        return goodsMapper.getHotGoods();
     }
 }

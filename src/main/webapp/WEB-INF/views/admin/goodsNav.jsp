@@ -6,6 +6,7 @@
                 <li><a href="${pageContext.request.contextPath}/admin/goods/show">所有商品</a></li>
                 <li><a href="${pageContext.request.contextPath}/admin/goods/add">添加商品</a></li>
                 <li><a href="${pageContext.request.contextPath}/admin/goods/addCategory">所有分类</a></li>
+                <li><a href="${pageContext.request.contextPath}/admin/goods/showhot">爆款热销</a></li>
                 <%--<li><a href="login.html">。。。</a></li>--%>
             </ul>
         </nav>

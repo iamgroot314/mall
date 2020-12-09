@@ -13,6 +13,10 @@
         <result column="isSale" jdbcType="INTEGER" property="isSale"/>
         <association property="activity" select="com.sk.mall.dao.ActivityMapper.getActivityById"
                      javaType="com.sk.mall.entity.Activity" column="activityId"/>
+        <association property="hotGoods" javaType="com.sk.mall.entity.HotGoods" column="goodsId">
+            <id column="goodsId" jdbcType="INTEGER" property="goodsId"/>
+            <result column="countNum" jdbcType="INTEGER" property="countNum"/>
+        </association>
     </resultMap>
 
     <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.sk.mall.entity.Goods">
@@ -181,5 +185,10 @@
         where id = #{id,jdbcType=INTEGER}
     </update>
 
+    <select id="getHotGoods" resultMap="BaseResultMap">
+        select *
+        from goods
+        where id in (select goodsId from hotgoods) and isSale = '1'
+    </select>
 
 </mapper>

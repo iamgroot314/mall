@@ -36,6 +36,39 @@ public class Goods {
 
     private List<Comment> comments;
 
+    private HotGoods hotGoods;
+
+    @Override
+    public String toString() {
+        return "Goods{" +
+                "id=" + id +
+                ", goodsName='" + goodsName + '\'' +
+                ", price=" + price +
+                ", num=" + num +
+                ", upTime=" + upTime +
+                ", category=" + category +
+                ", categoryName='" + categoryName + '\'' +
+                ", detailCate='" + detailCate + '\'' +
+                ", activityId=" + activityId +
+                ", description='" + description + '\'' +
+                ", imagePaths=" + imagePaths +
+                ", fav=" + fav +
+                ", activity=" + activity +
+                ", newPrice=" + newPrice +
+                ", isSale=" + isSale +
+                ", comments=" + comments +
+                ", hotGoods=" + hotGoods +
+                '}';
+    }
+
+    public HotGoods getHotGoods() {
+        return hotGoods;
+    }
+
+    public void setHotGoods(HotGoods hotGoods) {
+        this.hotGoods = hotGoods;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -164,24 +197,4 @@ public class Goods {
         this.isSale = isSale;
     }
 
-    @Override
-    public String toString() {
-        return "Goods{" +
-                "id=" + id +
-                ", goodsName='" + goodsName + '\'' +
-                ", price=" + price +
-                ", num=" + num +
-                ", uptime=" + upTime +
-                ", category=" + category +
-                ", categoryName='" + categoryName + '\'' +
-                ", detailCate='" + detailCate + '\'' +
-                ", activityId=" + activityId +
-                ", description='" + description + '\'' +
-                ", imagePaths=" + imagePaths +
-                ", fav=" + fav +
-                ", activity=" + activity +
-                ", newPrice=" + newPrice +
-                ", isSale=" + isSale +
-                '}';
-    }
 }

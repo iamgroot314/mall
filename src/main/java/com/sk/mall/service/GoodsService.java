@@ -57,5 +57,10 @@ public interface GoodsService {
      */
     List<Goods> selectGoodsByCateLike(String cate);
 
-     List<Goods> getHotGoods(int num);
+    /**
+     *
+     * @param
+     * @return
+     */
+    List<Goods> getHotGoods();
 }
